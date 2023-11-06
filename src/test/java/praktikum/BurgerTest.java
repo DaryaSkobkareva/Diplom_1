@@ -88,13 +88,13 @@ public class BurgerTest {
         burger.addIngredient(ingredients.get(2));
         burger.addIngredient(ingredients.get(4));
 
-        String expectedReceipt =
-                        "(==== red bun ====)\r\n"
-                        + "= sauce sour cream =\r\n"
-                        + "= sauce chili sauce =\r\n"
-                        + "= filling dinosaur =\r\n"
-                        + "(==== red bun ====)\r\n"
-                        + "\r\nPrice: 1300,000000\r\n";
+        String expectedReceipt = String.format("(==== %s ====)%n= %s %s =%n= %s %s =%n= %s %s =%n(==== %s ====)%n%nPrice: %f%n",
+                "red bun",
+                "sauce", "sour cream",
+                "sauce", "chili sauce",
+                "filling", "dinosaur",
+                "red bun",
+                1300f);
 
         assertEquals("Ожидался другой рецепт бургера", expectedReceipt, burger.getReceipt());
     }
